@@ -302,9 +302,9 @@
         num_fn {
             display-name = "num_fn";
             bindings = <
-&kp F1  &kp F2  &kp F3        &kp F4        &kp F5        &kp F6        &kp PERCENT   &kp N7        &kp N8      &kp N9  &kp LCTRL
-&kp F7  &kp F8  &kp F9        &kp F10       &kp F11       &kp F12       &kp ASTERISK  &kp N4        &kp N5      &kp N6  &kp FSLH 
-&BT_M   &BT_W   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &kp PLUS      &kp N1        &kp N2      &kp N3  &kp MINUS
+&kp F2  &kp F3        &kp F4        &kp F5        &kp F6        &kp PERCENT   &kp N7        &kp N8      &kp N9  &kp LCTRL
+&kp F8  &kp F9        &kp F10       &kp F11       &kp F12       &kp ASTERISK  &kp N4        &kp N5      &kp N6  &kp FSLH 
+&BT_W   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &kp PLUS      &kp N1        &kp N2      &kp N3  &kp MINUS
                               &none         &none         &none         &kp RET       &kp NUMBER_0  &kp PERIOD
             >;
         };
