@@ -17,11 +17,6 @@
     combos {
         compatible = "zmk,combos";
 
-        ctrl {
-            bindings = <&kp LEFT_CONTROL>;
-            key-positions = <36 41>;
-        };
-
         escape {
             bindings = <&kp ESCAPE>;
             key-positions = <38 39>;
@@ -31,11 +26,6 @@
             bindings = <&ctrl_alt_sppr>;
             key-positions = <4 7 8 3>;
             layers = <1 6>;
-        };
-
-        delete {
-            bindings = <&kp DELETE>;
-            key-positions = <11 24>;
         };
 
         middle_click {
@@ -64,6 +54,11 @@
             bindings = <&kp LG(LA(K))>;
             key-positions = <18 17>;
         };
+
+        gaming_layer {
+            bindings = <&to 11>;
+            key-positions = <0 1 2>;
+        };
     };
 
     behaviors {
@@ -88,15 +83,6 @@
             flavor = "balanced";
         };
 
-        td_alt_caps_word: td_alt_caps_word {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_ALT_CAPS_WORD";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT>, <&caps_word>;
-
-            tapping-term-ms = <150>;
-        };
-
         mo_sticky: mo_sticky {
             compatible = "zmk,behavior-hold-tap";
             label = "MO_STICKY";
@@ -107,9 +93,9 @@
             quick-tap-ms = <175>;
         };
 
-        hmr: hmr {
+        hmrl: hmrl {
             compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
+            label = "HMRL";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -121,7 +107,7 @@
         hold_caps_word: hold_caps_word {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_CAPS_WORD";
-            bindings = <&kp>, <&caps_word>;
+            bindings = <&double_shift>, <&caps_word>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -144,70 +130,70 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(UP_ARROW)>;
-            label = "MISSION_CONTROL";
+            label = "Mission Control";
         };
 
         app_expose: app_expose {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(DOWN_ARROW)>;
-            label = "APP_EXPOSE";
+            label = "App Expose";
         };
 
         left_desktop: left_desktop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LEFT_ARROW)>;
-            label = "LEFT_DESKTOP";
+            label = "Left desktop";
         };
 
         right_desktop: right_desktop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(RIGHT_ARROW)>;
-            label = "RIGHT_DESKTOP";
+            label = "Right desktop";
         };
 
         launchpad: launchpad {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LS(UP_ARROW))>;
-            label = "LAUNCHPAD";
+            label = "Launchpad";
         };
 
         ctrl_alt_sppr: ctrl_alt_sppr {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LA(LC(DELETE))>;
-            label = "CTRL_ALT_SPPR";
+            label = "Ctrl+Alt+Suppr Windows";
         };
 
         start_line: start_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(LEFT_ARROW)>;
-            label = "START_LINE";
+            label = "Start of line Mac";
         };
 
         end_line: end_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(RIGHT_ARROW)>;
-            label = "END_LINE";
+            label = "End of line Mac";
         };
 
         BT_M: BT_M {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 0 &to 0>;
-            label = "BT_M";
+            label = "Bluetooth Mac";
         };
 
         BT_W: BT_W {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 1 &to 1>;
-            label = "BT_W";
+            label = "Bluetooth Windows";
         };
 
         cmd_lclk: cmd_lclk {
@@ -221,7 +207,7 @@
                 <&macro_release>,
                 <&kp LEFT_COMMAND>;
 
-            label = "CMD_LCLK";
+            label = "Cmd+Left click";
         };
 
         crtl_lclk: crtl_lclk {
@@ -235,22 +221,58 @@
                 <&macro_release>,
                 <&kp LEFT_CONTROL>;
 
-            label = "CRTL_LCLK";
+            label = "Ctrl+Left click";
         };
 
-        nav_layer_bis: nav_layer_bis {
+        mo_nav: mo_nav {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&kp F20>,
                 <&macro_press>,
-                <&mo 2>,
+                <&mo 5>,
                 <&macro_pause_for_release>,
-                <&macro_press>,
-                <&kp F13>,
                 <&macro_release>,
-                <&mo 2>;
+                <&mo 5>,
+                <&macro_tap>,
+                <&kp F20>;
 
-            label = "NAV_LAYER_BIS";
+            label = "MO_NAV";
+        };
+
+        to_nav: to_nav {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F20 &to 5>;
+            label = "TO_NAV";
+        };
+
+        double_shift: double_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
+            label = "DOUBLE_SHIFT";
+        };
+
+        mdp_zh: mdp_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(Z) &kp A &kp H &kp A &kp LS(H) &kp A &kp D &kp I &kp D &kp N0 &kp N7 &kp EXCL>;
+            label = "MDP_MAC";
+        };
+
+        mdp_ta: mdp_dash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(T) &kp A &kp D &kp A &kp O &kp LS(A) &kp N &kp D &kp O &kp N0 &kp N7>;
+            label = "MDP_DASH";
+        };
+
+        mdp_cap: mdp_cap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(E) &kp S &kp M &kp E &kp E &kp LS(G) &kp U &kp I &kp L &kp L &kp O &kp U &kp N1 &kp N5 &kp EXCL>;
+            label = "MDP_CAP";
         };
     };
 
@@ -258,107 +280,101 @@
         compatible = "zmk,keymap";
 
         base_mac {
-            // -----------------------------------------------------------------------------------------
-            // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-            // |  TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
             display-name = "base_mac";
             bindings = <
-&kp ESC    &kp Q  &kp W              &kp E                           &kp R            &kp T          &kp Y         &kp U            &kp I                       &kp O               &kp P     &bspc_del
-&kp TAB    &kp A  &hmr LEFT_SHIFT S  &hmr LEFT_COMMAND D             &hmr LEFT_ALT F  &kp G          &kp H         &hmr LEFT_ALT J  &hmr LEFT_COMMAND K         &hmr RIGHT_SHIFT L  &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X              &kp C                           &kp V            &kp B          &kp N         &kp M            &kp COMMA                   &kp DOT             &kp FSLH  &kp GRAVE
-                                     &hold_sitcky LGUI LEFT_CONTROL  &mo 2            &lt 3 SPACE    &lt 7 RETURN  &hold_to 5 5     &hold_caps_word LEFT_ALT 0
+&kp Q  &kp W               &kp E                 &kp R             &kp T                   &kp Y                 &kp U             &kp I                       &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G    &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K        &hmrl LEFT_SHIFT L  &kp P        
+&kp Z  &kp X               &kp C                 &kp V             &kp B                   &kp N                 &kp M             &kp COMMA                   &kp DOT             &kp FSLH     
+                                  &lt 2 TAB             &bspc_del         &lt 3 SPACE             &lt 7 RETURN          &mo 5             &hold_caps_word LEFT_ALT 0
             >;
         };
 
         base_win {
             display-name = "base_win";
             bindings = <
-&kp ESC    &kp Q  &kp W              &kp E                               &kp R            &kp T          &kp Y         &kp U            &kp I                       &kp O               &kp P     &bspc_del
-&kp TAB    &kp A  &hmr LEFT_SHIFT S  &hmr LEFT_CONTROL D                 &hmr LEFT_ALT F  &kp G          &kp H         &hmr LEFT_ALT J  &hmr LEFT_CONTROL K         &hmr RIGHT_SHIFT L  &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X              &kp C                               &kp V            &kp B          &kp N         &kp M            &kp COMMA                   &kp DOT             &kp FSLH  &kp GRAVE
-                                     &hold_sitcky LEFT_CONTROL LEFT_WIN  &mo 2            &lt 4 SPACE    &lt 8 RETURN  &hold_to 6 6     &hold_caps_word LEFT_ALT 0
+&kp Q  &kp W               &kp E                 &kp R             &kp T               &kp Y             &kp U             &kp I                       &kp O                &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G    &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K        &hmrl RIGHT_SHIFT L  &kp P        
+&kp Z  &kp X               &kp C                 &kp V             &kp B               &kp N             &kp M             &kp COMMA                   &kp DOT              &kp FSLH     
+                                  &lt 2 TAB             &bspc_del         &lt 4 SPACE         &lt 8 RETURN      &mo 6             &hold_caps_word LEFT_ALT 0
             >;
         };
 
         num_fn {
             display-name = "num_fn";
             bindings = <
-&kp F1  &kp F2  &kp F3        &kp F4        &kp F5        &kp F6        &kp N7   &kp N8  &kp N9  &kp PERCENT   &kp LCTRL  &kp BACKSPACE
-&kp F7  &kp F8  &kp F9        &kp F10       &kp F11       &kp F12       &kp N4   &kp N5  &kp N6  &kp ASTERISK  &kp FSLH   &kp PERIOD
-&BT_M   &BT_W   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &kp N1   &kp N2  &kp N3  &kp PLUS      &kp MINUS  &kp COMMA
-                              &none         &none         &none         &kp RET  &kp N0  &none
+&kp F1  &kp F2  &kp F3        &kp F4        &kp F5        &kp F6        &kp PERCENT   &kp N7        &kp N8      &kp N9  &kp LCTRL
+&kp F7  &kp F8  &kp F9        &kp F10       &kp F11       &kp F12       &kp ASTERISK  &kp N4        &kp N5      &kp N6  &kp FSLH 
+&BT_M   &BT_W   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &kp PLUS      &kp N1        &kp N2      &kp N3  &kp MINUS
+                              &none         &none         &none         &kp RET       &kp NUMBER_0  &kp PERIOD
             >;
         };
 
         symbols_m {
             display-name = "symbols_m";
             bindings = <
-&none  &none     &kp TILDE      &kp AT_SIGN       &kp CARET     &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp EQUAL      &kp PLUS        &kp DOUBLE_QUOTES  &kp LS(LA(NUMBER_2))  &kp BACKSPACE
-&none  &kp HASH  &kp GRAVE      &kp EXCLAMATION   &kp DOLLAR    &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp MINUS      &kp UNDERSCORE  &kp APOSTROPHE     &kp PERCENT           &none
-&none  &none     &kp LESS_THAN  &kp AMPERSAND     &kp ASTERISK  &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp BACKSLASH  &kp PIPE        &kp GREATER_THAN   &none                 &none
-                                &kp LEFT_COMMAND  &none         &none                   &none                  &none          &kp LEFT_ALT
+&none     &kp TILDE      &kp AT_SIGN      &kp CARET     &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp EQUAL      &kp PLUS        &kp DOUBLE_QUOTES  &kp LS(LA(NUMBER_2))
+&kp HASH  &kp GRAVE      &kp EXCLAMATION  &kp DOLLAR    &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp MINUS      &kp UNDERSCORE  &kp APOSTROPHE     &kp PERCENT         
+&none     &kp LESS_THAN  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp BACKSLASH  &kp PIPE        &kp GREATER_THAN   &none
+                                &none            &none         &none                   &none                  &none          &kp LEFT_ALT
             >;
         };
 
         symbols_w {
             display-name = "symbols_w";
             bindings = <
-&none  &none     &kp TILDE      &kp AT            &kp CARET     &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp EQUAL  &kp PLUS        &kp DOUBLE_QUOTES  &kp RA(NUMBER_5)  &kp BACKSPACE
-&none  &kp HASH  &kp GRAVE      &kp EXCLAMATION   &kp DOLLAR    &kp LBKT                &kp RBKT               &kp MINUS  &kp UNDERSCORE  &kp APOSTROPHE     &kp PERCENT       &none
-&none  &none     &kp LESS_THAN  &kp AMPERSAND     &kp ASTERISK  &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp BSLH   &kp PIPE        &kp GREATER_THAN   &none             &none
-                                &kp LEFT_CONTROL  &none         &none                   &none                  &none      &kp LEFT_ALT
+&none     &kp TILDE      &kp AT           &kp CARET     &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp EQUAL  &kp PLUS        &kp DOUBLE_QUOTES  &kp RA(NUMBER_5)
+&kp HASH  &kp GRAVE      &kp EXCLAMATION  &kp DOLLAR    &kp LBKT                &kp RBKT               &kp MINUS  &kp UNDERSCORE  &kp APOSTROPHE     &kp PERCENT     
+&none     &kp LESS_THAN  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp BSLH   &kp PIPE        &kp GREATER_THAN   &none           
+                                &none            &none         &none                   &none                  &none      &kp LEFT_ALT
             >;
         };
 
         nav_m {
             display-name = "nav_m";
             bindings = <
-&kp ESCAPE      &none      &kp LG(LEFT_BRACKET)  &kp LG(W)                  &kp LG(RIGHT_BRACKET)  &kp C_VOLUME_UP      &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP         &mkp RCLK        &cmd_lclk    &kp BACKSPACE
-&none           &none      &kp C_PREVIOUS        &kp C_PLAY_PAUSE           &kp C_NEXT             &kp C_VOLUME_DOWN    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN       &mmv MOVE_RIGHT  &kp LS(TAB)  &kp TAB
-&kp LEFT_SHIFT  &kp LG(Z)  &kp LS(LC(TAB))       &none                      &kp LC(TAB)            &kp C_MUTE           &launchpad      &left_desktop   &mission_control     &right_desktop   &none        &none
-                                                 &mo_sticky 9 LEFT_CONTROL  &none                  &mkp LCLK            &lt 7 RETURN    &to 0           &mt LEFT_ALT ESCAPE
+&none      &kp LG(LEFT_BRACKET)         &kp LG(W)                        &kp LG(RIGHT_BRACKET)  &kp C_VOLUME_UP              &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP      &mkp RCLK        &cmd_lclk
+&none      &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_COMMAND C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &hmrl LCTRL C_VOLUME_DOWN    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &mkp MCLK
+&kp LG(Z)  &kp LS(LC(TAB))              &none                            &kp LC(TAB)            &kp C_MUTE                   &launchpad      &left_desktop   &mission_control  &right_desktop   &none
+                                                        &mo_sticky 9 LEFT_CONTROL        &bspc_del              &mkp LCLK                    &none           &none           &none
             >;
         };
 
         nav_w {
             display-name = "nav_w";
             bindings = <
-&kp ESCAPE      &none          &kp LA(LEFT_ARROW)  &kp LC(W)                   &kp LA(RIGHT_ARROW)  &kp C_VOLUME_UP      &msc SCRL_UP    &mkp LCLK               &mmv MOVE_UP         &mkp RCLK                &crtl_lclk   &kp BACKSPACE
-&none           &none          &kp C_PREV          &kp C_PP                    &kp C_NEXT           &kp C_VOLUME_DOWN    &msc SCRL_DOWN  &mmv MOVE_LEFT          &mmv MOVE_DOWN       &mmv MOVE_RIGHT          &kp LS(TAB)  &kp TAB
-&kp LEFT_SHIFT  &kp LC(LS(T))  &kp LC(LS(TAB))     &none                       &kp LC(TAB)          &kp C_MUTE           &none           &kp LG(LC(LEFT_ARROW))  &kp LG(TAB)          &kp LG(LC(RIGHT_ARROW))  &none        &none
-                                                   &mo_sticky 10 LEFT_COMMAND  &none                &mkp LCLK            &lt 8 RETURN    &to 1                   &mt LEFT_ALT ESCAPE
+&none          &kp LA(LEFT_ARROW)           &kp LC(W)                        &kp LA(RIGHT_ARROW)    &kp C_VOLUME_UP      &msc SCRL_UP    &mkp LCLK               &mmv MOVE_UP    &mkp RCLK                &crtl_lclk  &none
+&none          &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_CONTROL C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &kp C_VOLUME_DOWN    &msc SCRL_DOWN  &mmv MOVE_LEFT          &mmv MOVE_DOWN  &mmv MOVE_RIGHT          &mkp MCLK   &none
+&kp LC(LS(T))  &kp LC(LS(TAB))              &none                            &kp LC(TAB)            &kp C_MUTE           &none           &kp LG(LC(LEFT_ARROW))  &kp LG(TAB)     &kp LG(LC(RIGHT_ARROW))  &none       &none
+                                                            &mo_sticky 10 LEFT_COMMAND       &bspc_del              &mkp LCLK            &none           &none                   &none
             >;
         };
 
         arrows_m {
             display-name = "arrows_m";
             bindings = <
-&kp ESCAPE      &none  &none  &none                                   &none           &none      &kp LG(UP_ARROW)    &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT_ARROW)  &none  &kp BACKSPACE
-&none           &none  &none  &none                                   &kp LEFT_ALT    &none      &kp LG(DOWN_ARROW)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &none  &none
-&kp LEFT_SHIFT  &none  &none  &none                                   &none           &none      &none               &none               &none           &none                &none  &none
-                              &hold_sitcky LEFT_COMMAND LEFT_CONTROL  &nav_layer_bis  &kp F23    &none               &none               &none
+&none    &none           &none             &none         &mdp_ta             &kp LG(UP_ARROW)    &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT_ARROW)  &none
+&none    &kp LEFT_SHIFT  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL    &kp LG(DOWN_ARROW)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &none
+&mdp_zh  &none           &none             &none         &none               &none               &none               &none           &none                &none
+                                     &none             &bspc_del     &none               &none               &none               &none
             >;
         };
 
         arrows_w {
             display-name = "arrows_w";
             bindings = <
-&kp ESCAPE      &none  &none  &none                                   &none      &none    &kp LC(HOME)  &kp HOME        &kp UP_ARROW    &kp END          &none  &kp BACKSPACE
-&none           &none  &none  &none                                   &kp RCTRL  &none    &kp LC(END)   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none  &none
-&kp LEFT_SHIFT  &none  &none  &none                                   &none      &none    &none         &none           &none           &none            &none  &none
-                              &hold_sitcky LEFT_CONTROL LEFT_COMMAND  &none      &none    &none         &none           &none
+&none     &none           &none             &none         &none           &kp LC(HOME)  &kp HOME        &kp UP_ARROW    &kp END          &none
+&none     &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN    &kp LC(END)   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
+&mdp_cap  &none           &none             &none         &none           &none         &none           &none           &none            &none
+                                      &none             &bspc_del     &none           &none         &none           &none
             >;
         };
 
         cmd {
             display-name = "cmd";
             bindings = <
-&none  &none      &none      &none      &none      &none    &msc SCRL_UP    &cmd_lclk       &none  &none            &none  &none
-&none  &kp LG(A)  &kp LG(S)  &none      &kp LG(F)  &none    &msc SCRL_DOWN  &msc SCRL_LEFT  &none  &msc SCRL_RIGHT  &none  &none
-&none  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &none    &none           &none           &none  &none            &none  &none
+&none      &none      &none      &none      &none    &msc SCRL_UP    &cmd_lclk       &none  &none            &none
+&kp LG(A)  &kp LG(S)  &none      &kp LG(F)  &none    &msc SCRL_DOWN  &msc SCRL_LEFT  &none  &msc SCRL_RIGHT  &none
+&kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &none    &none           &none           &none  &none            &none
                              &none      &none      &none    &none           &none           &none
             >;
         };
@@ -366,9 +382,9 @@
         ctrl {
             display-name = "ctrl";
             bindings = <
-&none  &none      &none      &none      &none      &none    &msc SCRL_UP    &crtl_lclk      &none  &none            &none  &none
-&none  &kp LC(A)  &kp LC(S)  &none      &kp LC(F)  &none    &msc SCRL_DOWN  &msc SCRL_LEFT  &none  &msc SCRL_RIGHT  &none  &none
-&none  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none    &none           &none           &none  &none            &none  &none
+&none      &none      &none      &none      &none    &msc SCRL_UP    &crtl_lclk      &none  &none            &none
+&kp LC(A)  &kp LC(S)  &none      &kp LC(F)  &none    &msc SCRL_DOWN  &msc SCRL_LEFT  &none  &msc SCRL_RIGHT  &none
+&kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none    &none           &none           &none  &none            &none
                              &none      &none      &none    &none           &none           &none
             >;
         };
