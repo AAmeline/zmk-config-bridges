@@ -348,10 +348,10 @@
         nav_w {
             display-name = "nav_w";
             bindings = <
-&none      &kp LA(LEFT_ARROW)  &kp LC(W)                    &kp LA(RIGHT_ARROW)              &kp C_VOLUME_UP        &msc SCRL_UP                &mkp LCLK       &mmv MOVE_UP    &mkp RCLK               &crtl_lclk
-&none      &none               &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_CONTROL C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &kp C_VOLUME_DOWN           &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN          &mmv MOVE_RIGHT
-&mkp MCLK  &none               &kp LC(LS(T))                &kp LC(LS(TAB))                  &none                  &kp LC(TAB)                 &kp C_MUTE      &none           &kp LG(LC(LEFT_ARROW))  &kp LG(TAB)
-                               &kp LG(LC(RIGHT_ARROW))      &none                            &none                  &mo_sticky 11 LEFT_COMMAND  &bspc_del       &mkp LCLK
+&none          &kp LA(LEFT_ARROW)           &kp LC(W)                        &kp LA(RIGHT_ARROW)    &kp C_VOLUME_UP      &msc SCRL_UP    &mkp LCLK               &mmv MOVE_UP    &mkp RCLK                &crtl_lclk
+&none          &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_CONTROL C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &kp C_VOLUME_DOWN    &msc SCRL_DOWN  &mmv MOVE_LEFT          &mmv MOVE_DOWN  &mmv MOVE_RIGHT          &mkp MCLK 
+&kp LC(LS(T))  &kp LC(LS(TAB))              &none                            &kp LC(TAB)            &kp C_MUTE           &none           &kp LG(LC(LEFT_ARROW))  &kp LG(TAB)     &kp LG(LC(RIGHT_ARROW))  &none     
+                                            &mo_sticky 10 LEFT_COMMAND       &bspc_del              &mkp LCLK            &none           &none                   &none
             >;
         };
 
