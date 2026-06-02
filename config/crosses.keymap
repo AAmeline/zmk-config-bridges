@@ -59,7 +59,6 @@
     behaviors {
         hold_sitcky: hold_sitcky {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_SITCKY";
             bindings = <&kp>, <&sk>;
 
             #binding-cells = <2>;
@@ -69,7 +68,6 @@
 
         hold_to: hold_to {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TO";
             bindings = <&mo>, <&to>;
 
             #binding-cells = <2>;
@@ -80,7 +78,6 @@
 
         mo_sticky: mo_sticky {
             compatible = "zmk,behavior-hold-tap";
-            label = "MO_STICKY";
             bindings = <&mo>, <&sk>;
 
             #binding-cells = <2>;
@@ -90,7 +87,6 @@
 
         hmrl: hmrl {
             compatible = "zmk,behavior-hold-tap";
-            label = "HMRL";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -101,7 +97,6 @@
 
         hold_caps_word: hold_caps_word {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_CAPS_WORD";
             bindings = <&mo>, <&caps_word>;
 
             #binding-cells = <2>;
@@ -112,7 +107,6 @@
 
         bspc_del: bspc_del {
             compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_DEL";
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
 
             #binding-cells = <0>;
@@ -125,70 +119,60 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(UP_ARROW)>;
-            label = "Mission Control";
         };
 
         app_expose: app_expose {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(DOWN_ARROW)>;
-            label = "App Expose";
         };
 
         left_desktop: left_desktop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LEFT_ARROW)>;
-            label = "Left desktop";
         };
 
         right_desktop: right_desktop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(RIGHT_ARROW)>;
-            label = "Right desktop";
         };
 
         launchpad: launchpad {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LS(UP_ARROW))>;
-            label = "Launchpad";
         };
 
         ctrl_alt_sppr: ctrl_alt_sppr {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LA(LC(DELETE))>;
-            label = "Ctrl+Alt+Suppr Windows";
         };
 
         start_line: start_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(LEFT_ARROW)>;
-            label = "Start of line Mac";
         };
 
         end_line: end_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(RIGHT_ARROW)>;
-            label = "End of line Mac";
         };
 
         BT_M: BT_M {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 0 &to 0>;
-            label = "Bluetooth Mac";
         };
 
         BT_W: BT_W {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 1 &to 1>;
-            label = "Bluetooth Windows";
         };
 
         cmd_lclk: cmd_lclk {
@@ -202,7 +186,6 @@
                 <&macro_release>,
                 <&kp LEFT_COMMAND>;
 
-            label = "Cmd+Left click";
         };
 
         crtl_lclk: crtl_lclk {
@@ -216,7 +199,6 @@
                 <&macro_release>,
                 <&kp LEFT_CONTROL>;
 
-            label = "Ctrl+Left click";
         };
 
         mo_nav: mo_nav {
@@ -232,42 +214,36 @@
                 <&macro_tap>,
                 <&kp F20>;
 
-            label = "MO_NAV";
         };
 
         to_nav: to_nav {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F20 &to 6>;
-            label = "TO_NAV";
         };
 
         double_shift: double_shift {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
-            label = "DOUBLE_SHIFT";
         };
 
         mdp_zh: mdp_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(Z) &kp A &kp H &kp A &kp LS(H) &kp A &kp D &kp I &kp D &kp N0 &kp N7 &kp EXCL>;
-            label = "MDP_MAC";
         };
 
         mdp_ta: mdp_dash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(T) &kp A &kp D &kp A &kp O &kp LS(A) &kp N &kp D &kp O &kp N0 &kp N7>;
-            label = "MDP_DASH";
         };
 
         mdp_cap: mdp_cap {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(E) &kp S &kp M &kp E &kp E &kp LS(G) &kp U &kp I &kp L &kp L &kp O &kp U &kp N1 &kp N5 &kp EXCL>;
-            label = "MDP_CAP";
         };
     };
 
@@ -280,7 +256,7 @@
 &kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                 &kp O               &kp SEMICOLON
 &kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G  &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K  &hmrl LEFT_SHIFT L  &kp P
 &kp Z  &kp X               &kp C                 &kp V             &kp B                 &kp N                 &kp M             &kp COMMA             &kp DOT             &kp FSLH
-                           &lt 3 TAB             &bspc_del         &lt 4 SPACE           &lt 8 RETURN          &mo 6             &hold_caps_word 2 0
+                           &lt 3 TAB             &bspc_del         &lt 4 SPACE           &lt 8 RETURN          &lt 6 ESCAPE          &hold_caps_word 2 0
             >;
         };
 
@@ -290,7 +266,7 @@
 &kp Q  &kp W               &kp E                 &kp R             &kp T             &kp Y             &kp U             &kp I                 &kp O                &kp SEMICOLON
 &kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G  &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K  &hmrl RIGHT_SHIFT L  &kp P
 &kp Z  &kp X               &kp C                 &kp V             &kp B             &kp N             &kp M             &kp COMMA             &kp DOT              &kp FSLH
-                           &lt 3 TAB             &bspc_del         &lt 5 SPACE       &lt 9 RETURN      &mo 7             &hold_caps_word 2 0
+                           &lt 3 TAB             &bspc_del         &lt 5 SPACE       &lt 9 RETURN      &lt 7 ESCAPE             &hold_caps_word 2 0
             >;
         };
 
