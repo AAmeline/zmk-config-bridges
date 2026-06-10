@@ -54,6 +54,12 @@
             bindings = <&kp LG(LA(K))>;
             key-positions = <15 14>;
         };
+
+        mouse_layer {
+            bindings = <&mo 12>;
+            key-positions = <2 1>;
+            layers = <0 1>;
+        };
     };
 
     behaviors {
@@ -373,10 +379,10 @@
 
         mouse {
             bindings = <
-&none  &none      &none      &none      &none  &none      &none      &none      &none      &none
-&none  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none  &none      &mkp LCLK  &mkp RCLK  &mkp MCLK  &none
-&none  &none      &none      &none      &none  &none      &none      &none      &none      &none
-                  &none      &none      &none  &mkp LCLK  &mkp RCLK  &mkp MCLK
+&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
+&none  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none      &none      &mkp LCLK  &mkp RCLK  &mkp MCLK  &none
+&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
+                  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
             >;
 
             label = "mouse";
