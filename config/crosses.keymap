@@ -60,6 +60,11 @@
             key-positions = <2 1>;
             layers = <0 1>;
         };
+
+        game_layer {
+            bindings = <&to 13>;
+            key-positions = <33 27>;
+        };
     };
 
     behaviors {
@@ -386,6 +391,16 @@
             >;
 
             label = "mouse";
+        };
+
+        game {
+            display-name = "game";
+            bindings = <
+&kp Q  &kp W  &kp E    &kp R             &kp T      &kp ESCAPE      &none      &kp UP_ARROW  &kp O      &none
+&kp A  &kp S  &kp D    &kp F             &kp G      &kp LEFT_SHIFT  &kp LEFT   &kp DOWN      &kp RIGHT  &kp P
+&kp Z  &kp X  &kp C    &kp V             &kp B      &kp N           &kp M      &none         &none      &none
+              &kp TAB  &kp LEFT_CONTROL  &kp SPACE  &mkp LCLK       &mkp RCLK  &mkp MCLK
+            >;
         };
     };
 };
