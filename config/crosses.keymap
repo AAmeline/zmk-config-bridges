@@ -17,21 +17,16 @@
     combos {
         compatible = "zmk,combos";
 
-        escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <33 32>;
-        };
-
         ctrl_alt_suppr {
             bindings = <&ctrl_alt_sppr>;
             key-positions = <7 3 2 6>;
-            layers = <1 7>;
+            layers = <2 9>;
         };
 
         middle_click {
             bindings = <&mkp MCLK>;
             key-positions = <6 8>;
-            layers = <6 7>;
+            layers = <8 9>;
         };
 
         base_mac_layer {
@@ -40,14 +35,14 @@
         };
 
         base_win_layer {
-            bindings = <&to 1>;
+            bindings = <&to 2>;
             key-positions = <33 25>;
         };
 
         app_expose_m {
             bindings = <&app_expose>;
             key-positions = <27 26 28>;
-            layers = <6>;
+            layers = <8>;
         };
 
         tog_micro {
@@ -55,15 +50,14 @@
             key-positions = <15 14>;
         };
 
-        mouse_layer {
-            bindings = <&mo 12>;
-            key-positions = <2 1>;
-            layers = <0 1>;
+        game_layer {
+            bindings = <&to 14>;
+            key-positions = <33 27>;
         };
 
-        game_layer {
-            bindings = <&to 13>;
-            key-positions = <33 27>;
+        base_mac_vim {
+            bindings = <&to 1>;
+            key-positions = <33 25 26>;
         };
     };
 
@@ -113,7 +107,7 @@
         hold_caps_word: hold_caps_word {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_CAPS_WORD";
-            bindings = <&mo>, <&caps_word>;
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -198,7 +192,7 @@
         BT_W: BT_W {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 1>;
+            bindings = <&bt BT_SEL 1 &to 2>;
             label = "Bluetooth Windows";
         };
 
@@ -265,20 +259,32 @@
         base_mac {
             display-name = "base_mac";
             bindings = <
-&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                 &kp O               &kp SEMICOLON
-&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G  &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K  &hmrl LEFT_SHIFT L  &kp P
-&kp Z  &kp X               &kp C                 &kp V             &kp B                 &kp N                 &kp M             &kp COMMA             &kp DOT             &kp FSLH
-                           &lt 3 TAB             &bspc_del         &lt 4 SPACE           &lt 8 RETURN          &lt 6 ESCAPE      &hold_caps_word 2 0
+&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                       &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G  &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K        &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 7 B               &lt 7 N               &kp M             &kp COMMA                   &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 5 SPACE           &lt 10 RETURN         &lt 8 ESCAPE      &hold_caps_word 3 CAPSLOCK
             >;
+        };
+
+        base_mac_vim {
+            display-name = "base_mac";
+            bindings = <
+&kp Q  &kp W               &kp E                 &kp R             &kp T        &kp Y          &kp U             &kp I                       &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &kp G        &kp H          &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K        &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 7 B      &lt 7 N        &kp M             &kp COMMA                   &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 5 SPACE  &lt 10 RETURN  &lt 8 ESCAPE      &hold_caps_word 3 CAPSLOCK
+            >;
+
+            label = "base_mac_vim";
         };
 
         base_win {
             display-name = "base_win";
             bindings = <
-&kp Q  &kp W               &kp E                 &kp R             &kp T             &kp Y             &kp U             &kp I                 &kp O                &kp SEMICOLON
-&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G  &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K  &hmrl RIGHT_SHIFT L  &kp P
-&kp Z  &kp X               &kp C                 &kp V             &kp B             &kp N             &kp M             &kp COMMA             &kp DOT              &kp FSLH
-                           &lt 3 TAB             &bspc_del         &lt 5 SPACE       &lt 9 RETURN      &lt 7 ESCAPE      &hold_caps_word 2 0
+&kp Q  &kp W               &kp E                 &kp R             &kp T             &kp Y             &kp U             &kp I                       &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G  &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K        &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 7 B           &lt 7 N           &kp M             &kp COMMA                   &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 6 SPACE       &lt 11 RETURN     &lt 9 ESCAPE      &hold_caps_word 3 CAPSLOCK
             >;
         };
 
@@ -322,13 +328,24 @@
             >;
         };
 
+        mouse {
+            bindings = <
+&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
+&none  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none      &none      &mkp LCLK  &mkp RCLK  &mkp MCLK  &none
+&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
+                  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
+            >;
+
+            label = "mouse";
+        };
+
         nav_m {
             display-name = "nav_m";
             bindings = <
 &none      &kp LG(LEFT_BRACKET)         &kp LG(W)                        &kp LG(RIGHT_BRACKET)  &kp C_VOLUME_UP            &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP      &mkp RCLK        &cmd_lclk
 &none      &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_COMMAND C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &hmrl LCTRL C_VOLUME_DOWN  &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &mkp MCLK
 &kp LG(Z)  &kp LS(LC(TAB))              &none                            &kp LC(TAB)            &kp C_MUTE                 &launchpad      &left_desktop   &mission_control  &right_desktop   &none
-                                        &mo_sticky 10 LEFT_CONTROL       &bspc_del              &mkp LCLK                  &none           &none           &none
+                                        &mo_sticky 12 LEFT_CONTROL       &bspc_del              &mkp LCLK                  &none           &none           &none
             >;
         };
 
@@ -338,7 +355,7 @@
 &none          &kp LA(LEFT_ARROW)           &kp LC(W)                        &kp LA(RIGHT_ARROW)    &kp C_VOLUME_UP    &msc SCRL_UP    &mkp LCLK               &mmv MOVE_UP    &mkp RCLK                &crtl_lclk
 &none          &hmrl LEFT_SHIFT C_PREVIOUS  &hmrl LEFT_CONTROL C_PLAY_PAUSE  &hmrl LEFT_ALT C_NEXT  &kp C_VOLUME_DOWN  &msc SCRL_DOWN  &mmv MOVE_LEFT          &mmv MOVE_DOWN  &mmv MOVE_RIGHT          &mkp MCLK
 &kp LC(LS(T))  &kp LC(LS(TAB))              &none                            &kp LC(TAB)            &kp C_MUTE         &none           &kp LG(LC(LEFT_ARROW))  &kp LG(TAB)     &kp LG(LC(RIGHT_ARROW))  &none
-                                            &mo_sticky 10 LEFT_COMMAND       &bspc_del              &mkp LCLK          &none           &none                   &none
+                                            &mo_sticky 12 LEFT_COMMAND       &bspc_del              &mkp LCLK          &none           &none                   &none
             >;
         };
 
@@ -380,17 +397,6 @@
 &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none  &none           &none           &none  &none            &none
                       &none      &none      &none  &none           &none           &none
             >;
-        };
-
-        mouse {
-            bindings = <
-&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
-&none  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none      &none      &mkp LCLK  &mkp RCLK  &mkp MCLK  &none
-&none  &none      &none      &none      &none      &none      &none      &none      &none      &none
-                  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
-            >;
-
-            label = "mouse";
         };
 
         game {
