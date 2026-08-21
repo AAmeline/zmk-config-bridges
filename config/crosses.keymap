@@ -270,20 +270,20 @@
         base_mac {
             display-name = "base_mac";
             bindings = <
-&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                       &kp O               &kp SEMICOLON
-&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G  &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K        &hmrl LEFT_SHIFT L  &kp P
-&kp Z  &kp X               &kp C                 &kp V             &lt 7 B               &lt 7 N               &kp M             &kp COMMA                   &kp DOT             &kp FSLH
-                           &lt 4 TAB             &bspc_del         &lt 5 SPACE           &lt 11 RETURN         &lt 9 ESCAPE      &hold_caps_word 3 CAPSLOCK
+&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                 &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_COMMAND D  &hmrl LEFT_ALT F  &hmrl LEFT_CONTROL G  &hmrl LEFT_CONTROL H  &hmrl LEFT_ALT J  &hmrl LEFT_COMMAND K  &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 7 B               &lt 7 N               &kp M             &kp COMMA             &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 5 SPACE           &lt 11 RETURN         &lt 9 ESCAPE      &lt 3 CAPSLOCK
             >;
         };
 
         base_mac_vim {
             display-name = "base_mac";
             bindings = <
-&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                       &kp O               &kp SEMICOLON
-&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_COMMAND G  &hmrl LEFT_COMMAND H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K        &hmrl LEFT_SHIFT L  &kp P
-&kp Z  &kp X               &kp C                 &kp V             &lt 7 B               &lt 7 N               &kp M             &kp COMMA                   &kp DOT             &kp FSLH
-                           &lt 4 TAB             &bspc_del         &lt 5 SPACE           &lt 11 RETURN         &lt 9 ESCAPE      &hold_caps_word 3 CAPSLOCK
+&kp Q  &kp W               &kp E                 &kp R             &kp T                 &kp Y                 &kp U             &kp I                 &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_COMMAND G  &hmrl LEFT_COMMAND H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K  &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 7 B               &lt 7 N               &kp M             &kp COMMA             &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 5 SPACE           &lt 11 RETURN         &lt 9 ESCAPE      &lt 3 CAPSLOCK
             >;
 
             label = "base_mac_vim";
@@ -292,10 +292,10 @@
         base_win {
             display-name = "base_win";
             bindings = <
-&kp Q  &kp W               &kp E                 &kp R             &kp T             &kp Y             &kp U             &kp I                       &kp O               &kp SEMICOLON
-&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G  &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K        &hmrl LEFT_SHIFT L  &kp P
-&kp Z  &kp X               &kp C                 &kp V             &lt 8 B           &lt 8 N           &kp M             &kp COMMA                   &kp DOT             &kp FSLH
-                           &lt 4 TAB             &bspc_del         &lt 6 SPACE       &lt 12 RETURN     &lt 10 ESCAPE     &hold_caps_word 3 CAPSLOCK
+&kp Q  &kp W               &kp E                 &kp R             &kp T             &kp Y             &kp U             &kp I                 &kp O               &kp SEMICOLON
+&kp A  &hmrl LEFT_SHIFT S  &hmrl LEFT_CONTROL D  &hmrl LEFT_ALT F  &hmrl LEFT_WIN G  &hmrl LEFT_WIN H  &hmrl LEFT_ALT J  &hmrl LEFT_CONTROL K  &hmrl LEFT_SHIFT L  &kp P
+&kp Z  &kp X               &kp C                 &kp V             &lt 8 B           &lt 8 N           &kp M             &kp COMMA             &kp DOT             &kp FSLH
+                           &lt 4 TAB             &bspc_del         &lt 6 SPACE       &lt 12 RETURN     &lt 10 ESCAPE     &lt 3 CAPSLOCK
             >;
         };
 
