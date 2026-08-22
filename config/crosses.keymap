@@ -134,6 +134,16 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
         };
+
+        hmr_mkp: hmr_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR_MKP";
+            bindings = <&kp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <200>;
+        };
     };
 
     macros {
@@ -341,10 +351,10 @@
 
         mouse_m {
             bindings = <
-&none  &none      &none      &none      &none      &none      &none           &none      &none      &none
-&none  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none      &none      &mkp LCLK       &mkp RCLK  &mkp MCLK  &none
-&none  &none      &none      &cmd_lclk  &none      &none      &cmd_lclk       &none      &none      &none
-                  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp LCLK  &mo_mkp 9 RCLK  &mkp MCLK
+&none  &none                     &none                       &none                   &none      &none      &none                    &none                        &none                 &none
+&none  &hmr_mkp LEFT_SHIFT MCLK  &hmr_mkp LEFT_COMMAND RCLK  &hmr_mkp LEFT_ALT LCLK  &none      &none      &hmr_mkp RIGHT_ALT LCLK  &hmr_mkp RIGHT_COMMAND RCLK  &hmr_mkp RSHIFT MCLK  &none
+&none  &none                     &none                       &cmd_lclk               &none      &none      &cmd_lclk                &none                        &none                 &none
+                                 &mkp MCLK                   &mkp RCLK               &mkp LCLK  &mkp LCLK  &mo_mkp 9 RCLK           &mkp MCLK
             >;
 
             label = "mouse_m";
@@ -353,10 +363,10 @@
         mouse_w {
             label = "mouse_w";
             bindings = <
-&none  &none      &none      &none       &none      &none      &none           &none      &none      &none
-&none  &mkp MCLK  &mkp RCLK  &mkp LCLK   &none      &none      &mkp LCLK       &mkp RCLK  &mkp MCLK  &none
-&none  &none      &none      &crtl_lclk  &none      &none      &crtl_lclk      &none      &none      &none
-                  &mkp MCLK  &mkp RCLK   &mkp LCLK  &mkp LCLK  &mo_mkp 9 RCLK  &mkp MCLK
+&none  &none                     &none                       &none                   &none      &none      &none                   &none                        &none                      &none
+&none  &hmr_mkp LEFT_SHIFT MCLK  &hmr_mkp LEFT_CONTROL RCLK  &hmr_mkp LEFT_ALT LCLK  &none      &none      &hmr_mkp LEFT_ALT LCLK  &hmr_mkp RIGHT_CONTROL RCLK  &hmr_mkp RIGHT_SHIFT MCLK  &none
+&none  &none                     &none                       &crtl_lclk              &none      &none      &crtl_lclk              &none                        &none                      &none
+                                 &mkp MCLK                   &mkp RCLK               &mkp LCLK  &mkp LCLK  &mo_mkp 9 RCLK          &mkp MCLK
             >;
         };
 
