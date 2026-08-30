@@ -1,1 +1,9 @@
-
+&trackball_central_listener {
+  scroll_override {
+    layers = <11 12>;
+    input-processors
+        = <&zip_y_to_scroll_mapper>
+        , <&zip_scroll_scaler 1 4>
+        , <&zip_ble_report_rate_limit>;
+  }
+}
