@@ -1,10 +1,19 @@
-&trackball_peripheral_split {
-    device = <&trackball_peripheral>;
+# include <input/processors.dtsi>
+/ {
+  zip_omit_x_scaler: zip_omit_x_scaler {
+    compatible = "zmk,input-processor-scaler";
     type = <INPUT_EV_REL>;
-    x-codes = <INPUT_REL_Y>;
-    y-codes = <INPUT_REL_Y>;
-    input-processors
-        = <&zip_xy_to_scroll_mapper>
-        , <&zip_scroll_scaler 1 4>
-        , <&zip_ble_report_rate_limit>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    track-remainders;
+  }
+};
+
+&trackball_peripheral_split {
+  device = <&trackball_peripheral>;
+  scroller {
+    input-processors =
+      <&zip_xy_to_scroll_mapper>,
+      <&zip_omit_x_scaler 0 1>,
+      <&zip_ble_report_rate_limit>;
+  }
 };
