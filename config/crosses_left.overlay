@@ -5,7 +5,7 @@
     type = <INPUT_EV_REL>;
     codes = <INPUT_REL_X INPUT_REL_Y>;
     track-remainders;
-  }
+  };
 };
 
 &trackball_peripheral_split {
@@ -15,5 +15,5 @@
       <&zip_xy_to_scroll_mapper>,
       <&zip_omit_x_scaler 0 1>,
       <&zip_ble_report_rate_limit>;
-  }
+  };
 };

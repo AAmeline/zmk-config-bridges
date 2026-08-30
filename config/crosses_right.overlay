@@ -1,11 +1,6 @@
 &trackball_central_listener {
-  scroll_override {
-    layers = <11 12>;
-    type = <INPUT_EV_REL>;
-    x-codes = <INPUT_REL_Y>;
-    y-codes = <INPUT_REL_Y>;
-    input-processors
-        = <&zip_xy_to_scroll_mapper>
-        , <&zip_scroll_scaler 1 4>;
-  }
-}
+  layers = <11 12>;
+  input-processors
+      = <&zip_xy_to_scroll_mapper>
+      , <&zip_scroll_scaler 1 4>;
+};
