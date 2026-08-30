@@ -1,6 +1,6 @@
-&trackball_central_listener {
-  layers = <11 12>;
-  input-processors
-      = <&zip_xy_to_scroll_mapper>
-      , <&zip_scroll_scaler 1 4>;
-};
+/* &trackball_central_listener { */
+/*   layers = <11 12>; */
+/*   input-processors */
+/*       = <&zip_xy_to_scroll_mapper> */
+/*       , <&zip_scroll_scaler 1 4>; */
+/* }; */
