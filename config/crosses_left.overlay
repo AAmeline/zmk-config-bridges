@@ -1,12 +1,4 @@
-# include <input/processors.dtsi>
-/ {
-  zip_omit_x_scaler: zip_omit_x_scaler {
-    compatible = "zmk,input-processor-scaler";
-    type = <INPUT_EV_REL>;
-    codes = <INPUT_REL_X INPUT_REL_Y>;
-    track-remainders;
-  };
-};
+# include "crosses_left.dtsi"
 
 /* &trackball_peripheral_split { */
 /*   device = <&trackball_peripheral>; */
